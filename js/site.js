@@ -1,32 +1,43 @@
+//get starting values from the screen
+//Controller Function
+function getString() {
+    //Get the user's input
+    let userString = document.getElementById("userString").value;
+    //Version 2 - Test the user's input for length
 
-function displayMessage() {
-    let msg = "";
+    //Reverse the user's input - this is a separate function
+    let revString = reverseString(userString);
 
-    msg = document.getElementById("message").value;
-
-    alert(msg);
+    //Display the result - this is a separate function
+    displayString(revString);
 }
 
+function reverseString(userString) {
+    let startValue = userString.length - 1;
+    let endValue = 0;
 
-function displayMessage2() {
-    let msg = "";
+    //User input = Frank
+    //Frank is a string AND an array of characters
+    //[F, r, a, n, k]
 
-    msg = document.getElementById("message").value;
+    let revString = "";
 
-    Swal.fire(msg);
+    //In a decremented for loop the startValue must be higher than the endValue
+    for (let i = startValue; i >= endValue; i--) {
+        revString += userString[i];
+    };
+
+    //Loop 1 - "k"
+    //Loop 2 - "kn"
+    //Loop 3 - "kna"
+    //Loop 4 - "knar"
+    //Loop 5 - "knarF"
+    return revString
+
 }
 
+function displayString(revString) {
+    let output = document.getElementById("results");
 
-// Two functions
-// function displayMessage(msg) {
-
-//     alert(msg);
-// }
-
-// function getMessage() {
-//     let msg = "";
-
-//     msg = document.getElementById("message").value;
-
-//     displayMessage(msg);
-// }
+    output.innerHTML = revString;
+}

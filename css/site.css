@@ -52,8 +52,26 @@ footer .social>a:hover {
     color: #ff993b;
 }
 
+/* Techonolgy Used Icons */
+.jsicon {
+    color: rgb(226, 211, 4);
+}
 
+.jsicon {
+    color: rgb(226, 211, 4);
+}
 
+.bsicon {
+    color: purple;
+}
+
+.html5icon {
+    color: red;
+}
+
+.css3icon {
+    color: blue;
+}
 
 
 
