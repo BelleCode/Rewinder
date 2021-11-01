@@ -1,43 +1,48 @@
-//get starting values from the screen
-//Controller Function
+// Function that accesses the webpage and get the values from inputs
 function getString() {
-    //Get the user's input
-    let userString = document.getElementById("userString").value;
-    //Version 2 - Test the user's input for length
 
-    //Reverse the user's input - this is a separate function
+    // reset the alert in the results to invisible
+    document.getElementById("alert").classList.add("invisible");
+
+    // set up the system 
+    let userString = document.getElementById("userString").value;
+
     let revString = reverseString(userString);
 
-    //Display the result - this is a separate function
     displayString(revString);
+
 }
+
+// Function that reverses the string
+// let name = Bobby
+// name[0] = B
+// name[1] = o
+// name[2] = b  
+// name[3] = b
+// name[4] = y
+// past position in an array.name.length -1
+
 
 function reverseString(userString) {
-    let startValue = userString.length - 1;
-    let endValue = 0;
 
-    //User input = Frank
-    //Frank is a string AND an array of characters
-    //[F, r, a, n, k]
+    let revString = [];
 
-    let revString = "";
-
-    //In a decremented for loop the startValue must be higher than the endValue
-    for (let i = startValue; i >= endValue; i--) {
-        revString += userString[i];
-    };
-
-    //Loop 1 - "k"
-    //Loop 2 - "kn"
-    //Loop 3 - "kna"
-    //Loop 4 - "knar"
-    //Loop 5 - "knarF"
-    return revString
-
+    // reverse the string using a for loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];
+    }
+    // return revString back to the controlling program 
+    return revString;
 }
 
-function displayString(revString) {
-    let output = document.getElementById("results");
 
-    output.innerHTML = revString;
+// Function that reversed the string and displays it to the user
+function displayString(revString) {
+
+    //Write the message to the page
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+
+    //show the alert box
+    document.getElementById("alert").classList.remove("invisible");
+
 }
