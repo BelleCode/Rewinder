@@ -27,17 +27,21 @@
 
 </head>
 
-<body class="d-flex-column h-100">
+<!-- ==== BODY CLASS ==== -->
 
-    <!-- Nav Section -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<body class="d-flex flex-column h-100 mt-5">
+
+    <!-- ==== NAV BAR ==== -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-color">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/img/android-chrome-192x192.png" alt="" width="30" height="30">
+            <a class="navbar-brand align-content-center" href="https://bellecoder-portfolio.netlify.app"
+                target="_blank">
+                <img src="/img/android-chrome-192x192.png" alt="Belinda Tiberio Logo"
+                    class="d-inline-block align-text-top" width="50" height="50">
+                Rewinder
             </a>
-            <a class="navbar-brand" href="/app.html">Rewinder</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -70,62 +74,162 @@
         <div class="container col-xxl-8 px-4 py-5 mt-5">
 
             <h2 class="border-1 border-bottom border-dark">The Code</h2>
+            <!-- CODE BLOCK : getString()-->
             <div class="row">
                 <div class="col-lg-8 col-sm-12">
                     <!-- My CODE -->
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            function displayMessage() {
-                            let msg = "";
+function getString() {
 
-                            msg = document.getElementById("message").value;
+    document.getElementById("alert").classList.add("invisible");
 
-                            alert(msg);
-                            }
+    let userString = document.getElementById("userString").value;
 
+    let revString = reverseString(userString);
 
-                            function displayMessage2() {
-                            let msg = "";
+    displayString(revString);
 
-                            msg = document.getElementById("message").value;
-
-                            Swal.fire(msg);
-                            }
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4 col-sm-12">
-                    <p>The code is structured in one function</p>
-                    <h5>getValues</h5>
-                    <p>Prints out your Message!</p>
+                    <h5>getString()</h5>
+                    <h6>Requirements:</h6>
+                    <ul>
+                        <li>Function that accesses the webpage and get the values from inputs</li>
+                        <li>Checks for:</li>
+                        <ul>
+                            <li>reset the alert in the results to invisible</li>
+                            <li>set up the system</li>
+                        </ul>
+                    </ul>
+
+                    <h6>Variables:</h6>
+                    <ul>
+                        <li>userString => string that</li>
+                        <li>revString => values where the count ends</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- CODE BLOCK : reverseString()-->
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <!-- My CODE -->
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+ function reverseString(userString) {
+
+    let revString = [];
+
+    for (let index = userString.length - 1; index >= 0; index--) {
+    revString += userString[index];
+    }
+    
+    return revString;
+ }
+                        </code>
+                    </pre>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <h5>reverseString()</h5>
+                    <h6>Requirements:</h6>
+                    <ul>
+                        <li>Reverse the string using a for loop</li>
+                    </ul>
+
+                    <h6>Variables:</h6>
+                    <ul>
+                        <li>revString => values to start the count</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- CODE BLOCK : displayString()-->
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <!-- My CODE -->
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+function displayString(revString) {
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+
+    document.getElementById("alert").classList.remove("invisible");
+}
+                        </code>
+                    </pre>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <h5>reverseString()</h5>
+                    <h6>Requirements:</h6>
+                    <ul>
+                        <li>Function that reversed the string and displays it to the user</li>
+                        <li>Write the message to the page</li>
+                        <li>Show the alert box</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-
     </main>
 
-    <!-- Footer Section -->
-    <footer class="footer mt-auto py-3 sticky-footer">
+    <!--===== Footer Section =====-->
+    <!-- Small to Medium screens -->
+    <footer class="footer mt-auto py-3 sticky-footer d-inline-block d-md-none">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="https://bellecoder-portfolio.netlify.app">
+                        <img src="/img/Black Background - Name - Crop.png" class="rounded mx-auto d-block"
+                            height="50"></a>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <div class="row">
+                        <div class="col social">
+                            <a href="https://www.linkedin.com/in/btiberio/">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col social">
+                            <a href="https://github.com/BelleCode">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Medium to large screens -->
+    <footer class="footer mt-auto py-3 sticky-footer d-md-inline-block d-none">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3">
                 <div class="col">
                     <div>
-                        <span class="text-muted">&copy2021</span>Belinda Tiberio | careers@belindatiberio.com
+                        <a href="mailto: careers@belindatiberio.com" style="text-decoration:none">
+                            <span class="text-muted">&copy2021| careers@belindatiberio.com</span></a>
                     </div>
                 </div>
                 <div class="col text-center">
-                    <img src="/img/Black Background - Name - Crop.png" height="50">
+                    <a href="https://bellecoder-portfolio.netlify.app">
+                        <img src="/img/Black Background - Name - Crop.png" class="rounded mx-auto d-block"
+                            height="50"></a>
                 </div>
-                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
+                <div class="col d-flex justify-content-end">
                     <div class="row">
-                        <div class="col social"><a href="https://www.linkedin.com/in/btiberio/"><i
-                                    class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="https://github.com/BelleCode"><i
-                                    class="fab fa-github fa-2x"></i></a></div>
+                        <div class="col social">
+                            <a href="https://www.linkedin.com/in/btiberio/">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col social">
+                            <a href="https://github.com/BelleCode">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
     </footer>
 
 
